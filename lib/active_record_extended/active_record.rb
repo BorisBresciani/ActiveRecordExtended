@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-# TODO: Remove this when ruby 2.3 support is dropped
-unless Hash.instance_methods(false).include?(:compact!)
-  require "active_support/all"
-end
-
 require "active_record"
 require "active_record/relation"
 require "active_record/relation/merger"
@@ -23,12 +18,8 @@ require "active_record_extended/query_methods/inet"
 require "active_record_extended/query_methods/json"
 require "active_record_extended/query_methods/select"
 
-if ActiveRecord::VERSION::MAJOR == 5 && ActiveRecord::VERSION::MINOR <= 1
-  if ActiveRecord::VERSION::MINOR.zero?
-    require "active_record_extended/patch/5_0/regex_match"
-    require "active_record_extended/patch/5_0/predicate_builder_decorator"
-  end
+if ActiveRecord::VERSION::MAJOR == 5 && ActiveRecord::VERSION::MINOR == 1
   require "active_record_extended/patch/5_1/where_clause"
-elsif ActiveRecord::VERSION::MAJOR >= 5
-  require "active_record_extended/patch/5_2/where_clause"
+else
+  require "active_record_extended/patch/5_2/where_clause" # Works with Rail 6.0.x too
 end

@@ -2,7 +2,6 @@ dist: trusty
 sudo: required
 language: ruby
 rvm:
-  - 2.3
   - 2.4
   - 2.5
   - 2.6
@@ -14,7 +13,6 @@ branches:
   only:
     - master
 gemfile:
-  - gemfiles/activerecord-50.gemfile
   - gemfiles/activerecord-51.gemfile
   - gemfiles/activerecord-52.gemfile
   - gemfiles/activerecord-60.gemfile
@@ -23,8 +21,6 @@ matrix:
   allow_failures:
     - rvm: ruby-head
   exclude:
-    - rvm: 2.3
-      gemfile: gemfiles/activerecord-60.gemfile
     - rvm: 2.4
       gemfile: gemfiles/activerecord-60.gemfile
 

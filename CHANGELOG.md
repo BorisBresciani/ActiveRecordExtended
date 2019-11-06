@@ -1,3 +1,11 @@
+# Master - (Unreleased)
+
+Deprecations:
+- Dropping support for Ruby v2.3.x
+- Dropping support for Rails 5.0.x
+- Dropping support for `cast_as_array` option for json queries.
+  - Same operation can be performed with `cast_with: :array`
+
 # 1.4.0 - November 6th 2019
 
 Performance tweaks:

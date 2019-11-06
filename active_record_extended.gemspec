@@ -19,7 +19,9 @@ Gem::Specification.new do |spec|
   spec.test_files    = `git ls-files -- spec/*`.split("\n")
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "activerecord", ">= 5.0", "< 6.1"
+  spec.required_ruby_version = ">= 2.4.0"
+
+  spec.add_dependency "activerecord", ">= 5.1", "< 6.1"
   spec.add_dependency "ar_outer_joins", "~> 0.2"
   spec.add_dependency "pg", "< 2.0"
 
